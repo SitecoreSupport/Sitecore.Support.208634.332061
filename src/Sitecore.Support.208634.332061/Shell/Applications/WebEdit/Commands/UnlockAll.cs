@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Sitecore.Data.Items;
+using Sitecore.Data.Locking;
 using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.Shell.Applications.Dialogs.ProgressBoxes;
@@ -45,7 +46,9 @@ namespace Sitecore.Support.Shell.Applications.WebEdit.Commands
 
             var tempItems = new List<Item>();
 
-            Item[] items = Client.ContentDatabase.SelectItems(@"search://*[@__lock='%""" + Context.User.Name + @"""%']");
+            var userLockedItemArgs = new UserLockedItemArgs(Context.User.Identity, Client.ContentDatabase);
+            UserLockProvider.Instance.GetItemsLockedByUser(userLockedItemArgs);
+            var items = userLockedItemArgs.Result;
 
             if (items == null || !items.Any())
             {
