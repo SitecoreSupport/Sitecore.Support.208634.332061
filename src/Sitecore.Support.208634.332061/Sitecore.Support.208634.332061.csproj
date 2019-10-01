@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\zzz\Sitecore.Support.208634.332061.config" />
-    <Content Include="ndxItemLock.sql" />
+    <Content Include="SQL Script\ndxItemLock.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
