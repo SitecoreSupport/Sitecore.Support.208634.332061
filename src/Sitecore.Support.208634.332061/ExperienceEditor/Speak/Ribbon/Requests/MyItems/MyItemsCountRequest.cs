@@ -1,7 +1,7 @@
 ﻿using Sitecore.Configuration;
+using Sitecore.Data.Locking;
 using Sitecore.Diagnostics;
 using Sitecore.ExperienceEditor.Speak.Server.Responses;
-using Sitecore.ExperienceEditor.Utils;
 
 namespace Sitecore.Support.ExperienceEditor.Speak.Ribbon.Requests.MyItems
 {
@@ -22,10 +22,12 @@ namespace Sitecore.Support.ExperienceEditor.Speak.Ribbon.Requests.MyItems
                 };
             }
 
-            this.RefreshIndex(this.RequestContext.Item);
+            var userLockedItemArgs = new UserLockedItemArgs(Context.User.Identity, database);
+            UserLockProvider.Instance.GetItemsLockedByUser(userLockedItemArgs);
+            var items = userLockedItemArgs.Result;
             return new PipelineProcessorResponseValue
             {
-                Value = ItemUtility.GetLockedItemsCountOfCurrentUser()
+                Value = items.Count
             };
         }
     }
