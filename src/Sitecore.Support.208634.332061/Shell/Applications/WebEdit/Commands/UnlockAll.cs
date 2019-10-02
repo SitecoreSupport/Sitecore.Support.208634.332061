@@ -102,7 +102,7 @@ namespace Sitecore.Support.Shell.Applications.WebEdit.Commands
         /// <param name="parameters">The parameters.</param>
         static void UnlockAllItems([NotNull] params object[] parameters)
         {
-            UnlockAllItemsMethodInfo.Invoke(null, parameters);
+            UnlockAllItemsMethodInfo.Invoke(null, new object[] {parameters});
         }
 
         #endregion
