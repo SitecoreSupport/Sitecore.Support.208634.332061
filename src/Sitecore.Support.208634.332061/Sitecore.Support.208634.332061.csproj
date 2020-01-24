@@ -50,6 +50,10 @@
       <HintPath>..\packages\SC.Microsoft.Extensions.DependencyInjection.Abstractions.9.3.0\lib\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\SC.netstandard.9.3.0\lib\netstandard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Sitecore.Annotations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SC.Sitecore.Annotations.9.3.0\lib\Sitecore.Annotations.dll</HintPath>
       <Private>False</Private>
