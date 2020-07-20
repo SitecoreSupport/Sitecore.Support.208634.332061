@@ -7,7 +7,7 @@ using Sitecore.Support.Data.Locking;
 
 namespace Sitecore.Support
 {
-    [UsedImplicitly]
+    [Annotations.UsedImplicitly]
     public class UserLockProviderHook : IHook
     {
         public void Initialize()
